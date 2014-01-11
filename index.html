@@ -297,11 +297,13 @@ $(document).ready(function(){
           dataType: 'json',
           success: function(response) {		
             if(response.status){
-              $('#contact-form input').val('');
-              $('#contact-form textarea').val('');
+//                $( ".contact-form :input" ).attr("disabled", true);
+              $('#contact-form input').attr('readonly','readonly');
+              $('#contact-form textarea').attr('readonly','readonly');
             }
-                
+
             $('#response').empty().html(response.html);
+            $("#contact-submit").remove();
           }
         });
         return false;
