@@ -12,19 +12,19 @@ header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-$admin_email = 'hello@sugar.so'; // Your Email
+$contact_email = 'hello@sugar.so'; // Your Email
 $message_min_length = 5; // Min Message Length
 
 
 class Contact_Form{
-	function __construct($details, $email_admin, $message_min_length){
+	function __construct($details, $contact_email, $message_min_length){
 		$this->details = $details;
 		$this->name = stripslashes($details['name']);
 		$this->email = trim($details['email']);
 		$this->subject = 'Contact from Your Website'; // Subject 
 		$this->message = stripslashes($details['message']);
 	
-		$this->email_admin = $email_admin;
+		$this->contact_email = $contact_email;
 		$this->message_min_length = $message_min_length;
 		
 		$this->response_status = 1;
@@ -71,8 +71,8 @@ class Contact_Form{
 
 	private function sendEmail(){
 		$mail_options = [
-		    "sender" => "website@sugar.so",
-		    "to" => $this->email_admin,
+		    "sender" => "m@sugar.so",
+		    "to" => $this->contact_email,
 		    "subject" => $this->subject . " - " . $this->name . " <" . $this->email . ">",
 		    "textBody" => $this->message
 		];
@@ -90,7 +90,7 @@ class Contact_Form{
 			try { 
 
 				$mail_options = [
-				    "sender" => "system@sugar.so",
+				    "sender" => "m@sugar.so",
 				    "to" => "m@sugar.so",
 				    "subject" => "Good news everyone! Customer attempt to contact us has FAILED.",
 				    "textBody" => "See appengine logs for details\n" . json_encode($_POST) . "\n\n" . json_encode($_SERVER)
@@ -124,7 +124,7 @@ class Contact_Form{
 }
 
 syslog(LOG_INFO, "Post: " . json_encode($_POST) . "\n\nSERVER: " . json_encode($_SERVER));
-$contact_form = new Contact_Form($_POST, $admin_email, $message_min_length);
+$contact_form = new Contact_Form($_POST, $contact_email, $message_min_length);
 $contact_form->sendRequest();
 
 ?>
