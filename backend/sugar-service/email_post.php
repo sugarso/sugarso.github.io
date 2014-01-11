@@ -12,7 +12,7 @@ header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-$admin_email = 'm@sugar.so'; // Your Email
+$admin_email = 'hello@sugar.so'; // Your Email
 $message_min_length = 5; // Min Message Length
 
 
@@ -71,7 +71,7 @@ class Contact_Form{
 
 	private function sendEmail(){
 		$mail_options = [
-		    "sender" => $this->email_admin,
+		    "sender" => "website@sugar.so",
 		    "to" => $this->email_admin,
 		    "subject" => $this->subject . " - " . $this->name . " <" . $this->email . ">",
 		    "textBody" => $this->message
@@ -88,9 +88,10 @@ class Contact_Form{
 		} catch (Exception $e) {
 			syslog(LOG_EMERG, "Email Send failure " . json_encode($e));
 			try { 
+
 				$mail_options = [
-				    "sender" => $this->'system@sugar.so',
-				    "to" => $this->'m@sugar.so',
+				    "sender" => "system@sugar.so",
+				    "to" => "m@sugar.so",
 				    "subject" => "Good news everyone! Customer attempt to contact us has FAILED.",
 				    "textBody" => "See appengine logs for details\n" . json_encode($_POST) . "\n\n" . json_encode($_SERVER)
 				];
