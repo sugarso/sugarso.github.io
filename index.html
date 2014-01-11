@@ -301,7 +301,7 @@ $(document).ready(function(){
       var fields = $contact_form.serialize();		
         $.ajax({
           type: "POST",
-          url: "http://iodie-service.appspot.com/email_post",
+          url: "http://sugar-service.appspot.com/email_post",
           data: fields,
           dataType: 'json',
           success: function(response) {		
