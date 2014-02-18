@@ -1,0 +1,762 @@
+/*
+Author:     Aleks Hudochenkov
+Release:    17.02.2014
+-----------------------------------------------------------------------------*/
+
+// how to compile:
+// ~/sugar-studio$ sass sass/main.scss:main.css --style expanded
+//
+// development
+// ~/sugar-studio$ sass --watch sass/main.scss:main.css --style expanded
+
+@import "reset";
+@import "vars";
+
+/* Initial
+-----------------------------------------------------------------------------*/
+
+html,
+body {
+	height: 100%;
+}
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+body, input, textarea {
+	color: $default-color;
+	font-family: $default-ff;
+	font-weight: 400;
+}
+body {
+	font: #{$default-fz}/#{$default-lh} $default-ff;
+	min-width: $content-width + 10 * 2;
+
+	@include iphone {
+		min-width: 0;
+	}
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+a,
+a:active,
+a:visited {
+	color: $red;
+	text-decoration: none;
+	border-bottom: 1px solid lighten($red, 20%);
+	-webkit-transition: all $transition-duration;
+	        transition: all $transition-duration;
+
+	@include iphone {
+		border: none;
+	}
+}
+	a:hover {
+		color: $default-color;
+		border-color: lighten($default-color, 20%);
+	}
+	a:hover,
+	a:active {
+		outline: 0;
+	}
+img {
+	vertical-align: top;
+}
+strong, b {
+	font-weight: bold;
+}
+em, i {
+	font-style: italic;
+}
+p {
+	margin-bottom: 1em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+.button,
+a.button {
+	display: inline-block;
+	padding: 6px 27px 5px;
+	outline: 0;
+	border: 1px solid $red;
+	border-radius: 4px;
+	background: #fff;
+	color: $red;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: $default-lh;
+	-webkit-transition: all $transition-duration;
+	        transition: all $transition-duration;
+
+	&:hover {
+		background: $red;
+		color: #fff;
+	}
+
+	.project__buttons &:first-child {
+		margin-right: 14px;
+	}
+
+	@include iphone {
+		margin-right: 5px;
+		margin-left: 5px;
+		padding: 10px 24px 8px;
+		border-radius: 3px;
+		font-size: 11px;
+		line-height: 18px;
+
+		.project__buttons &:first-child {
+			margin-bottom: 10px;
+			margin-right: 5px;
+		}
+	}
+}
+input.button {
+	height: 49px;
+
+	@include iphone {
+		height: 38px;
+	}
+}
+.button--disabled {
+	border-color: #c2c8ce;
+	color: #d0d3d7;
+	pointer-events: none;
+}
+
+/* Header
+-----------------------------------------------------------------------------*/
+
+.header {
+	height: 100%;
+	position: relative;
+	min-height: 660px;
+
+	@include iphone {
+		min-height: 420px;
+	}
+}
+.header__background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: rgba(113, 11, 0, .8);
+		content: "";
+	}
+
+	@include iphone {
+		background: url("img/iphone/header-bg.jpg") 50% 100% no-repeat;
+		background-size: cover;
+	}
+}
+.header__video {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	-webkit-transform: translate3d(-50%, 0, 0);
+	        transform: translate3d(-50%, 0, 0);
+
+	@include iphone {
+		display: none;
+	}
+}
+.header__content-wrapper {
+	height: 100%;
+	text-align: center;
+
+	&:before,
+	&:after {
+		content: "";
+		display: inline-block;
+		width: 0;
+		height: 100%;
+		vertical-align: middle;
+	}
+}
+.header__content {
+	position: relative;
+	width: $content-width;
+	color: #fff;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 40px 0 40+66px;
+
+	@include iphone {
+		width: 88%;
+		padding: $iphone-padding 0 $iphone-padding+36px;
+	}
+}
+.logo {
+	margin-bottom: 60px;
+
+	@include iphone {
+		margin-bottom: 24px;
+
+		img {
+			display: none;
+		}
+
+		&:before {
+			content: "";
+			display: inline-block;
+			background: url("img/iphone/logo.png") 0 0 no-repeat;
+			vertical-align: top;
+			width: 120px;
+			height: 82px;
+			background-size: 100% 100%;
+		}
+	}
+}
+.header__motto {
+	font-weight: 900;
+	font-size: 74px;
+	line-height: 90px;
+	margin-bottom: 12px;
+
+	@include iphone {
+		font-size: 36px;
+		line-height: 40px;
+		margin-bottom: 14px;
+	}
+}
+.header__brief {
+	font-size: 30px;
+	line-height: 48px;
+	opacity: .9;
+
+	@include iphone {
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+.header__scroll-down {
+	@include at2x("img/header__scroll-down", 98px, 30px);
+	position: absolute;
+	bottom: 36px;
+	left: 50%;
+	margin-left: -49px;
+	width: 98px;
+	height: 30px;
+	text-indent: -9999px;
+
+	@include iphone {
+		bottom: 18px;
+		width: 56px;
+		height: 17px;
+		margin-left: -28px;
+		background: url("img/iphone/header__scroll-down.png") 0 0 no-repeat;
+		background-size: 100% 100%;
+	}
+}
+
+/* Section
+-----------------------------------------------------------------------------*/
+
+.section {
+	width: $content-width;
+	padding-top: 60px;
+	margin: auto;
+
+	@include iphone {
+		width: auto;
+		padding-top: 24px;
+	}
+}
+.section__title {
+	@include brandon-grotesque;
+	margin-bottom: 10px;
+	color: $red;
+	font-size: 24px;
+
+	@include iphone {
+		text-align: center;
+		font-size: 14px;
+		line-height: 18px;
+		margin-bottom: 19px;
+	}
+}
+
+/* About
+-----------------------------------------------------------------------------*/
+
+.about {
+	@include iphone {
+		display: none;
+	}
+}
+
+/* Projects
+-----------------------------------------------------------------------------*/
+
+.projects {
+}
+.project {
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 28px;
+	height: 690px;
+	border: 1px solid $grey-border;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	@include iphone {
+		text-align: center;
+		height: auto !important;
+		border-width: 1px 0 0;
+		padding: 20px $iphone-padding 0;
+		margin-bottom: 0;
+
+		&:last-child {
+			border-bottom-width: 1px;
+		}
+	}
+}
+.project--video {
+	height: 273px;
+}
+.project__info-wrapper {
+	margin-left: 479px;
+	height: 100%;
+
+	&:before,
+	&:after {
+		content: "";
+		display: inline-block;
+		width: 0;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	.project--alternative &,
+	.project--video & {
+		margin-left: 59px;
+	}
+
+	@include iphone {
+		margin-left: 0 !important;
+		height: auto;
+		margin-bottom: 15px;
+
+		&:before,
+		&:after {
+			display: none;
+		}
+	}
+}
+.project__info {
+	width: 400px;
+	display: inline-block;
+	vertical-align: middle;
+
+	@include iphone {
+		width: auto;
+		display: block;
+	}
+}
+.project__title {
+	font-size: 36px;
+	line-height: 48px;
+	margin-bottom: 14px;
+
+	@include iphone {
+		font-size: 24px;
+		line-height: 30px;
+		margin-bottom: 10px;
+	}
+}
+.project__description {
+	font-size: $alt-fz;
+	line-height: $alt-lh;
+
+	@include iphone {
+		p {
+			display: none;
+		}
+
+		.project__buttons {
+			display: block;
+		}
+	}
+}
+.project__image-wrapper {
+	position: absolute;
+	top: 23px;
+	left: 51px;
+
+	.project--alternative & {
+		left: 514px;
+	}
+	.project--video & {
+		left: auto;
+		top: 0;
+		right: 0;
+		border-left: 1px solid $grey-border;
+
+		@include iphone {
+			display: none;
+		}
+	}
+
+	@include iphone {
+		position: static;
+		border: none !important;
+	}
+}
+.iphone {
+	@include at2x("img/iphone", 354px, 741px);
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding-top: 110px;
+	padding-left: 30px;
+	width: 354px;
+	height: 741px;
+
+	@include iphone {
+		background: none;
+		padding: 63px 15px 0 16px;
+		width: 197px;
+		height: 214px;
+		background: url("img/iphone/iphone.png") 0 0 no-repeat;
+		background-size: 197px 351px;
+		margin: auto;
+
+		.project__image {
+			width: 100% !important;
+			height: auto !important;
+		}
+	}
+}
+.project__pretitle {
+	@include brandon-grotesque;
+	margin-bottom: 1px;
+	color: #33495d;
+	letter-spacing: 4px;
+	font-size: 12px;
+	opacity: .7;
+
+	@include iphone {
+		font-size: 10px;
+		line-height: 1em;
+		margin-bottom: 9px;
+	}
+}
+
+/* Team
+-----------------------------------------------------------------------------*/
+
+.team {
+	@include iphone {
+		display: none;
+	}
+}
+.team__about {
+	margin-bottom: 50px;
+}
+.team__members {
+	margin-left: -29px;
+	position: relative;
+}
+.member {
+	width: 290px;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 29px;
+}
+.member__photo {
+	height: 212px;
+	display: block;
+	margin-bottom: 36px;
+}
+.member__name {
+	@include brandon-grotesque;
+	margin-bottom: 1px;
+	color: #2c3d4f;
+	letter-spacing: 3px;
+	font-size: $alt-fz;
+	line-height: $alt-lh;
+}
+.member__position {
+	color: #7f8b8d;
+	font-size: 12px;
+	text-transform: uppercase;
+	line-height: 18px;
+	margin-bottom: 11px;
+	letter-spacing: 5px;
+}
+.member__about {
+	font-size: $alt-fz;
+	line-height: $alt-lh;
+	color: #7f8b8d;
+	padding-bottom: 33px;
+}
+.member__social {
+	position: absolute;
+	bottom: 0;
+}
+.social {
+}
+.social__item {
+	float: left;
+	height: 16px;
+}
+.social__link {
+	@include at2x("img/social", 113px, 40px);
+	position: relative;
+	display: block;
+	height: 100%;
+	border: none;
+	text-indent: -9999px;
+
+	&:after {
+		@include at2x("img/social", 113px, 40px);
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: #fff;
+		content: "";
+		opacity: 0;
+		-webkit-transition: opacity $transition-duration;
+		        transition: opacity $transition-duration;
+	}
+	&:hover:after {
+		opacity: 1;
+	}
+}
+.social__link--twitter {
+	width: 16px;
+	background-position: 0 0;
+
+	&:after {
+		background-position: 0 100%;
+	}
+}
+.social__link--facebook {
+	width: 7px;
+	padding: 0 5px;
+	margin-left: 18px;
+	background-position: -32px 0;
+
+	&:after {
+		background-position: -32px 100%;
+	}
+}
+.social__link--site {
+	width: 14px;
+	padding: 0 1px;
+	margin-left: 18px;
+	background-position: -64px 0;
+
+	&:after {
+		background-position: -64px 100%;
+	}
+}
+.social__link--gplus {
+	width: 16px;
+	margin-left: 21px;
+	background-position: 100% 0;
+
+	&:after {
+		background-position: 100% 100%;
+	}
+}
+
+/* Contact
+-----------------------------------------------------------------------------*/
+
+.contact {
+	margin-bottom: 20px;
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+
+	@include iphone {
+		margin-bottom: 0;
+		padding-bottom: $iphone-padding;
+	}
+}
+.contact__text {
+	margin-bottom: 34px;
+
+	@include iphone {
+		display: none;
+	}
+}
+
+$width: 400px;
+$padding: 120px;
+.contact-form {
+	float: left;
+	padding-left: $padding;
+	width: $width;
+
+	@include iphone {
+		float: none;
+		padding: 2px $iphone-padding 0;
+		width: auto;
+
+		&:before,
+		&:after {
+			content: " ";
+			display: table;
+		}
+		&:after {
+			clear: both;
+		}
+	}
+}
+.contact-form__field {
+	@include iphone {
+		margin-bottom: 13px;
+	}
+}
+.contact-form__label {
+	float: left;
+	margin-top: 6px;
+	margin-left: -$padding;
+	width: $padding;
+
+	@include iphone {
+		display: block;
+		float: none;
+		margin: 0 0 4px;
+		width: auto;
+		font-size: 16px;
+		line-height: 20px;
+	}
+}
+.textfield {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin: 0;
+	padding: 12px 14px;
+	width: $width;
+	border: 1px solid #eee;
+	background: #eee;
+	font-size: 100%;
+	-webkit-transition: border-color $transition-duration;
+	        transition: border-color $transition-duration;
+
+	&:focus {
+		border-color: #cecece;
+		outline: 0;
+	}
+
+	@include iphone {
+		width: 100%;
+		padding: 10px 12px;
+		font-size: 16px;
+	}
+}
+.textfield--error {
+	border-color: $red;
+}
+.contact-form__input {
+	vertical-align: middle;
+	line-height: normal;
+}
+.contact-form__textarea {
+	overflow: auto;
+	vertical-align: top;
+	resize: vertical;
+
+	@include iphone {
+		height: 150px;
+	}
+}
+.contact-form__submit-wrapper {
+	float: right;
+	margin-left: 28px;
+
+	@include iphone {
+		margin-left: 18px;
+	}
+}
+.contact-form__submit {
+	cursor: pointer;
+	-webkit-appearance: button;
+}
+.contact-form__status {
+	overflow: hidden;
+	text-align: right;
+	font-size: $alt-fz;
+	line-height: $alt-lh;
+	padding-top: 8px;
+
+	&.is-error {
+		color: $red;
+	}
+	&.is-success {
+		color: green;
+	}
+
+	@include iphone {
+		font-size: 16px;
+		line-height: 20px;
+	}
+}
+.connect {
+	float: right;
+	width: 260px;
+	padding: 30px 39px;
+	border: 1px solid $grey-border;
+
+	@include iphone {
+		float: none;
+		width: auto;
+		padding: 6px $iphone-padding 0;
+		border: none;
+	}
+}
+.connect__way {
+	margin-bottom: 24px;
+	line-height: $alt-lh;
+
+	@include iphone {
+		font-size: 16px;
+		line-height: 24px;
+		margin-bottom: 6px;
+	}
+}
+
+/* Footer
+-----------------------------------------------------------------------------*/
+
+.copyright {
+	font-size: 14px;
+	color: #bdc3c7;
+	width: $content-width;
+	margin: 0 auto 40px;
+
+	@include iphone {
+		display: none;
+	}
+}

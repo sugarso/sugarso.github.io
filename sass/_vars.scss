@@ -1,0 +1,36 @@
+$default-color: #34495e;
+$default-fz: 21px;
+$default-lh: 36px;
+$default-ff: "proxima-nova", sans-serif;
+$alt-fz: 18px;
+$alt-lh: 30px;
+$red: #e74c3c;
+$grey-border: #ebebeb;
+$content-width: 940px;
+$transition-duration: 0.2s;
+$iphone-padding: 20px;
+
+@mixin brandon-grotesque {
+	font-family: "brandon-grotesque", sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+@mixin at2x($path, $w: auto, $h: auto, $ext: "png") {
+	$at1x_path: "#{$path}.#{$ext}";
+	$at2x_path: "#{$path}@2x.#{$ext}";
+
+	background: url("#{$at1x_path}") 0 0 no-repeat;
+
+	@media all and (-webkit-min-device-pixel-ratio : 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+
+		background-image: url("#{$at2x_path}");
+		background-size: $w $h;
+	}
+}
+
+@mixin iphone {
+	@media only screen and (max-width: 480px) {
+		@content;
+	}
+}
