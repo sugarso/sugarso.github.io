@@ -182,4 +182,9 @@ $(document).ready(function(){
 
   });
 
+  $('.header__scroll-down').click(function() {
+    var scrollLength = $('.header').height();
+    $('html, body').animate({scrollTop: scrollLength}, 500);
+  });
+
 });
