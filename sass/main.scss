@@ -23,21 +23,17 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
-body, input, textarea {
-	color: $default-color;
-	font-family: $default-ff;
-	font-weight: 400;
-}
 body {
-	font: #{$default-fz}/#{$default-lh} $default-ff;
 	min-width: $content-width + 10 * 2;
+	color: $default-color;
+	font: 300 #{$default-fz}/#{$default-lh} $default-ff;
 
 	@include iphone {
 		min-width: 0;
 	}
 }
 h1, h2, h3, h4, h5, h6 {
-	font-weight: normal;
+	font-weight: 300;
 }
 a,
 a:active,
@@ -87,7 +83,7 @@ a.button {
 	color: $red;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	font-weight: bold;
+	font-weight: 600;
 	font-size: 14px;
 	line-height: $default-lh;
 	-webkit-transition: all $transition-duration;
@@ -661,7 +657,10 @@ $padding: 120px;
 	width: $width;
 	border: 1px solid #eee;
 	background: #eee;
+	color: $default-color;
+	font-weight: 300;
 	font-size: 100%;
+	font-family: $default-ff;
 	-webkit-transition: border-color $transition-duration;
 	        transition: border-color $transition-duration;
 

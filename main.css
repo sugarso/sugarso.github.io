@@ -1,5 +1,5 @@
 /*
-Author:     Aleks Hudochenkov 
+Author:     Aleks Hudochenkov
 Release:    17.02.2014
 -----------------------------------------------------------------------------*/
 /* Reset
@@ -42,15 +42,10 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
-body, input, textarea {
-  color: #34495e;
-  font-family: "proxima-nova", sans-serif;
-  font-weight: 400;
-}
-
 body {
-  font: 21px/36px "proxima-nova", sans-serif;
   min-width: 960px;
+  color: #34495e;
+  font: 300 21px/36px "proxima-nova", sans-serif;
 }
 @media only screen and (max-width: 480px) {
   body {
@@ -59,7 +54,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
+  font-weight: 300;
 }
 
 a,
@@ -119,7 +114,7 @@ a.button {
   color: #e74c3c;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 14px;
   line-height: 36px;
   -webkit-transition: all 0.2s;
@@ -336,7 +331,7 @@ input.button {
 
 .section__title {
   font-family: "brandon-grotesque", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 10px;
   color: #e74c3c;
@@ -510,7 +505,7 @@ input.button {
 
 .project__pretitle {
   font-family: "brandon-grotesque", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 1px;
   color: #33495d;
@@ -558,7 +553,7 @@ input.button {
 
 .member__name {
   font-family: "brandon-grotesque", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 1px;
   color: #2c3d4f;
@@ -747,7 +742,10 @@ input.button {
   width: 400px;
   border: 1px solid #eee;
   background: #eee;
+  color: #34495e;
+  font-weight: 300;
   font-size: 100%;
+  font-family: "proxima-nova", sans-serif;
   -webkit-transition: border-color 0.2s;
   transition: border-color 0.2s;
 }
