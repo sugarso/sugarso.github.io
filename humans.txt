@@ -1,0 +1,26 @@
+/* TEAM */
+	Naked Chef: Maxim Veksler
+	Contact: Maxim Veksler <m@sugar.so>
+	Twitter: @MaximVeksler
+	From:Tel Aviv, Israel
+
+	Half Naked Chef: Genady Okrain
+	Contact: Genady Okrain <g@sugar.so>
+	Twitter: @genadyo
+	From:Tel Aviv, Israel
+
+	Devine Design: Artiom Dashinsky
+	Contact: Artiom Dashinsky <art@sugar.so>
+	Twitter: @hvost
+	From:Tel Aviv, Israel
+
+/* THANKS */
+
+	Hosting: github
+
+
+/* SITE */
+	Last update:2014/01/10
+	Language: English
+	Doctype:HTML5
+	IDE: Sublime Text, VIM, Photoshop, git
