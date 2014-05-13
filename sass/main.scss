@@ -664,6 +664,7 @@ $padding: 120px;
 	font-family: $default-ff;
 	-webkit-transition: border-color $transition-duration;
 	        transition: border-color $transition-duration;
+	-webkit-appearance: none;
 
 	&:focus {
 		border-color: #cecece;

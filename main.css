@@ -749,6 +749,7 @@ input.button {
   font-family: "proxima-nova", sans-serif;
   -webkit-transition: border-color 0.2s;
   transition: border-color 0.2s;
+  -webkit-appearance: none;
 }
 .textfield:focus {
   border-color: #cecece;
