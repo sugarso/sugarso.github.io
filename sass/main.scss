@@ -416,6 +416,7 @@ input.button {
 
 	@include iphone {
 		position: static;
+		margin-bottom: 15px;
 		border: none !important;
 	}
 }
@@ -429,6 +430,7 @@ input.button {
 	height: 741px;
 
 	@include iphone {
+		overflow: hidden;
 		background: none;
 		padding: 63px 15px 0 16px;
 		width: 197px;

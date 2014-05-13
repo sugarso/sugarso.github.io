@@ -469,6 +469,7 @@ input.button {
 @media only screen and (max-width: 480px) {
   .project__image-wrapper {
     position: static;
+    margin-bottom: 15px;
     border: none !important;
   }
 }
@@ -490,6 +491,7 @@ input.button {
 }
 @media only screen and (max-width: 480px) {
   .iphone {
+    overflow: hidden;
     background: none;
     padding: 63px 15px 0 16px;
     width: 197px;
