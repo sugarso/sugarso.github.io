@@ -469,6 +469,7 @@ input.button {
 @media only screen and (max-width: 480px) {
   .project__image-wrapper {
     position: static;
+    margin-bottom: 15px;
     border: none !important;
   }
 }
@@ -490,6 +491,7 @@ input.button {
 }
 @media only screen and (max-width: 480px) {
   .iphone {
+    overflow: hidden;
     background: none;
     padding: 63px 15px 0 16px;
     width: 197px;
@@ -749,6 +751,7 @@ input.button {
   font-family: "proxima-nova", sans-serif;
   -webkit-transition: border-color 0.2s;
   transition: border-color 0.2s;
+  -webkit-appearance: none;
 }
 .textfield:focus {
   border-color: #cecece;
@@ -841,6 +844,35 @@ input.button {
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 6px;
+  }
+}
+
+.connect__social {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: none;
+  text-indent: -9999px;
+}
+.connect__social--twitter {
+  background: url("img/twitter.png") 0 0 no-repeat;
+  background-position: 0 50%;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  .connect__social--twitter {
+    background-image: url("img/twitter@2x.png");
+    background-size: 32px 24px;
+  }
+}
+.connect__social--facebook {
+  background: url("img/facebook.png") 0 0 no-repeat;
+  margin-left: 10px;
+  background-position: 50% 0;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  .connect__social--facebook {
+    background-image: url("img/facebook@2x.png");
+    background-size: 13px 31px;
   }
 }
 
