@@ -747,6 +747,23 @@ $padding: 120px;
 		margin-bottom: 6px;
 	}
 }
+.connect__social {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border: none;
+	text-indent: -9999px;
+
+	&--twitter {
+		@include at2x("img/twitter", 32px, 24px);
+		background-position: 0 50%;
+	}
+	&--facebook {
+		@include at2x("img/facebook", 13px, 31px);
+		margin-left: 10px;
+		background-position: 50% 0;
+	}
+}
 
 /* Footer
 -----------------------------------------------------------------------------*/
