@@ -192,10 +192,17 @@ input.button {
   background: rgba(113, 11, 0, 0.8);
   content: "";
 }
+@media only screen and (max-width: 1024px) {
+  .header__background {
+    background-image: url("video/cover.jpg");
+    background-position: 50% 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
 @media only screen and (max-width: 480px) {
   .header__background {
-    background: url("img/iphone/header-bg.jpg") 50% 100% no-repeat;
-    background-size: cover;
+    background-image: url("img/iphone/header-bg.jpg");
   }
 }
 
@@ -208,7 +215,7 @@ input.button {
   -webkit-transform: translate3d(-50%, 0, 0);
   transform: translate3d(-50%, 0, 0);
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 1024px) {
   .header__video {
     display: none;
   }

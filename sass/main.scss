@@ -156,9 +156,14 @@ input.button {
 		content: "";
 	}
 
-	@include iphone {
-		background: url("img/iphone/header-bg.jpg") 50% 100% no-repeat;
+	@include ipad {
+		background-image: url("video/cover.jpg");
+		background-position: 50% 100%;
 		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	@include iphone {
+		background-image: url("img/iphone/header-bg.jpg");
 	}
 }
 .header__video {
@@ -170,7 +175,7 @@ input.button {
 	-webkit-transform: translate3d(-50%, 0, 0);
 	        transform: translate3d(-50%, 0, 0);
 
-	@include iphone {
+	@include ipad {
 		display: none;
 	}
 }
