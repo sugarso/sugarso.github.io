@@ -1,2 +1,5 @@
 gems:
   - jekyll-redirect-from
+title: Parties for WWDC14
+redirect_from:
+  - /wwdc/
