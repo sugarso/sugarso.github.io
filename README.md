@@ -1,7 +1,7 @@
 # sugarso.github.io
 Sugar So What
 
-Following a request recivied by Itay Pincas, we are releasing the structure of the website powering sugar.so under The MIT License (MIT). 
+Following a request recivied from `Itay Pincas`, we are releasing the structure of the website powering sugar.so under The MIT License (MIT). 
 
 ```
 Copyright (c) 2014 Sugar So What LTD
